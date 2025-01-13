@@ -1,0 +1,8 @@
+.banner {
+    max-width: 100%;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: solid white 2px;
+  }

@@ -4,6 +4,7 @@
     background-color: black;
     color: white;
     text-align: center;
+    padding: 2.5em;
 }
 
 .link {
@@ -11,5 +12,5 @@
     flex-direction: row;
     justify-content: center;
     gap: 2em;
-    border: solid white 2px;
+    margin: 0.5em;
 }
