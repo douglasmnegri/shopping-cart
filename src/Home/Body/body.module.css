@@ -1,26 +1,71 @@
 .banner {
-    max-width: 100%;
-    display: block;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: solid white 2px;
-  }
+  max-width: 100%;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: solid white 2px;
+}
 
-  .ruler {
+.ruler {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  background-color: green;
+  margin-top: 1em;
+  width: 100%;
+  font-size: large;
+  padding: 1em 0em 1em 0em;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 0.5em;
+  text-align: center;
+}
+
+.rectBannerContainer {
     display: flex;
     justify-content: center;
     gap: 2em;
-    background-color: green;
-    margin-top: 1em;
-    width: 100%;
-    font-size: large;
+    margin: 1em;
     padding: 1em;
-  }
 
-  .iconContainer {
-    display: flex;
-    gap: 0.5em;
+}
+.rectBannerBox {
+    position: relative;
+    height: 400px; 
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.rectBannerBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-out;
+    transform-origin: center center; /* Make the transform start from the center */
+}
+
+.rectBannerBox::before {
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(39, 72, 180, 0.4); 
+    transition: height 0.4s ease-out; 
+    z-index: 1; 
+}
+
+.rectBannerBox:hover::before {
+    height: 85%; 
+}
+
+.rectBannerBox .content {
+    position: absolute;
+    color: white;
+    z-index: 2; 
     text-align: center;
-    
 }
