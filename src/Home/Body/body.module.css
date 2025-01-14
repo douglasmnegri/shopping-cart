@@ -6,3 +6,21 @@
     background-repeat: no-repeat;
     border: solid white 2px;
   }
+
+  .ruler {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    background-color: green;
+    margin-top: 1em;
+    width: 100%;
+    font-size: large;
+    padding: 1em;
+  }
+
+  .iconContainer {
+    display: flex;
+    gap: 0.5em;
+    text-align: center;
+    
+}
