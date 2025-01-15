@@ -6,10 +6,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import scarletViolet from "../../assets/sv_banner.png";
 import horizonsSeries from "../../assets/hs_banner.png";
+import IconContent from "../../Icons";
 
 import banner from "../../assets/tcg.png";
 import classes from "./body.module.css";
-import btnClass from "../../Button/button.module.css"
+import btnClass from "../../Button/button.module.css";
 
 function Body() {
   return (
@@ -21,13 +22,24 @@ function Body() {
         <IconContent
           icon={faCartShopping}
           content="Special Prices on Bundles"
+          style={classes.iconContainer}
         />
-        <IconContent icon={faBox} content="30-Day Exchange Policy" />
-        <IconContent icon={faTruck} content="Same-day Shipping" />
+        <IconContent
+          icon={faBox}
+          content="30-Day Exchange Policy"
+          style={classes.iconContainer}
+        />
+        <IconContent
+          icon={faTruck}
+          content="Same-day Shipping"
+          style={classes.iconContainer}
+        />
       </div>
       <div className={classes.rectBannerContainer}>
         <div className={classes.rectBannerBox}>
-          <button className={`${classes.content} ${btnClass.mainBtn}`}>Buy S&V Cards!</button>
+          <button className={`${classes.content} ${btnClass.mainBtn}`}>
+            Buy S&V Cards!
+          </button>
           <img
             src={scarletViolet}
             alt="scarlet and violet banner"
@@ -35,7 +47,9 @@ function Body() {
           />
         </div>
         <div className={classes.rectBannerBox}>
-        <button className={`${classes.content} ${btnClass.mainBtn}`}>Buy Horizons Cards!</button>
+          <button className={`${classes.content} ${btnClass.mainBtn}`}>
+            Buy Horizons Cards!
+          </button>
           <img
             src={horizonsSeries}
             alt="horizons series banner"
@@ -46,16 +60,4 @@ function Body() {
     </>
   );
 }
-
-function IconContent({ icon, content }) {
-  return (
-    <>
-      <div className={classes.iconContainer}>
-        <FontAwesomeIcon icon={icon} size="2xl" />
-        <p> {content}</p>
-      </div>
-    </>
-  );
-}
-
 export default Body;
