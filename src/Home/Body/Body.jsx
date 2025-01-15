@@ -9,6 +9,7 @@ import horizonsSeries from "../../assets/hs_banner.png";
 
 import banner from "../../assets/tcg.png";
 import classes from "./body.module.css";
+import btnClass from "../../Button/button.module.css"
 
 function Body() {
   return (
@@ -26,15 +27,15 @@ function Body() {
       </div>
       <div className={classes.rectBannerContainer}>
         <div className={classes.rectBannerBox}>
+          <button className={`${classes.content} ${btnClass.mainBtn}`}>Buy S&V Cards!</button>
           <img
             src={scarletViolet}
             alt="scarlet and violet banner"
             className={classes.rectBanner}
           />
-          <div className={classes.content}>Scarlet & Violet</div>{" "}
-          
         </div>
         <div className={classes.rectBannerBox}>
+        <button className={`${classes.content} ${btnClass.mainBtn}`}>Buy Horizons Cards!</button>
           <img
             src={horizonsSeries}
             alt="horizons series banner"

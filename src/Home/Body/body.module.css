@@ -25,47 +25,56 @@
 }
 
 .rectBannerContainer {
-    display: flex;
-    justify-content: center;
-    gap: 2em;
-    margin: 1em;
-    padding: 1em;
-
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: 1em;
+  padding: 1em;
 }
 .rectBannerBox {
-    position: relative;
-    height: 400px; 
-    overflow: hidden;
-    cursor: pointer;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  visibility: hidden;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
+}
+
+.rectBannerBox:hover .content {
+  visibility: visible; 
+  opacity: 1; 
 }
 
 .rectBannerBox img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-out;
-    transform-origin: center center; /* Make the transform start from the center */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-out;
+  transform-origin: center center; 
 }
 
 .rectBannerBox::before {
-    content: "";
-    position: absolute;
-    bottom: 0%;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background-color: rgba(39, 72, 180, 0.4); 
-    transition: height 0.4s ease-out; 
-    z-index: 1; 
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(1, 12, 49, 0.4);
+  transition: height 0.4s ease-out;
+  z-index: 1;
 }
 
 .rectBannerBox:hover::before {
-    height: 85%; 
-}
-
-.rectBannerBox .content {
-    position: absolute;
-    color: white;
-    z-index: 2; 
-    text-align: center;
+  height: 100%; /* Expand overlay on hover */
 }
