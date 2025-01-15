@@ -3,20 +3,23 @@ import {
   faInstagram,
   faFacebook,
   faYoutube,
-  faTwitter,
+  faSquareXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import IconContent from "../../Icons";
+import classes from "./footer.module.css";
 
 function Footer() {
   return (
-    <footer>
+    <footer className={classes.container}>
       <h1>Gengar's TCG Shop</h1>
-      <div>
-        <ul style={{ listStyleType: "none", padding: 0 }}>
-          <li>
-            <IconContent icon={faInstagram} content="Follow us on Instagram" />
-          </li>
-        </ul>
+      <div className={classes.socials}>
+        <h1>Socials</h1>
+        <div className={classes.logo}>
+          <IconContent icon={faInstagram} />
+          <IconContent icon={faFacebook} />
+          <IconContent icon={faYoutube} />
+          <IconContent icon={faSquareXTwitter} />
+        </div>
       </div>
     </footer>
   );
