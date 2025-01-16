@@ -28,10 +28,10 @@ function Footer() {
       <div className={classes.socials}>
         <h1>Socials</h1>
         <div className={classes.logo}>
-          <IconContent icon={faInstagram} />
-          <IconContent icon={faFacebook} />
-          <IconContent icon={faYoutube} />
-          <IconContent icon={faSquareXTwitter} />
+          <IconContent icon={faInstagram} size="xl" />
+          <IconContent icon={faFacebook} size="xl" />
+          <IconContent icon={faYoutube} size="xl" />
+          <IconContent icon={faSquareXTwitter} size="xl" />
         </div>
       </div>
     </footer>

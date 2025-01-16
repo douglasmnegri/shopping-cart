@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function IconContent({ icon, content, style }) {
+function IconContent({ icon, content, style, size }) {
   return (
     <>
       <div className={style}>
-        <FontAwesomeIcon icon={icon} size="xl" />
+        <FontAwesomeIcon icon={icon} size={size} />
         <p> {content}</p>
       </div>
     </>

@@ -24,16 +24,19 @@ function Body() {
           icon={faCartShopping}
           content="Special Prices on Bundles"
           style={classes.iconContainer}
+          size="xl"
         />
         <IconContent
           icon={faBox}
           content="30-Day Exchange Policy"
           style={classes.iconContainer}
+          size="xl"
         />
         <IconContent
           icon={faTruck}
           content="Same-day Shipping"
           style={classes.iconContainer}
+          size="xl"
         />
       </div>
       <div className={classes.rectBannerContainer}>

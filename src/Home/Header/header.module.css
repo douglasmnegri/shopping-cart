@@ -1,5 +1,6 @@
 .header {
-    
+    display: flex;
+    justify-content: space-between;
     background-color: #686293;
     color: #F1B2AC;
     text-align: center;
@@ -9,24 +10,26 @@
 
 .title {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
     text-align: center;
 }
 
 .link {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: end;
     gap: 2em;
-    margin: 0.5em;
+    margin-right: 3em;
     text-align: center;
     align-items: center;
     text-decoration: underline;
+    font-size: large;
 
 }
 
 .gengar {
-    width: 105px;
+    width: 70px;
 }
