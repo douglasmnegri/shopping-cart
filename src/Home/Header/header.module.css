@@ -1,10 +1,18 @@
 .header {
+    
+    background-color: #686293;
+    color: #F1B2AC;
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+.title {
     display: flex;
     flex-direction: column;
-    background-color: black;
-    color: white;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 2.5em;
 }
 
 .link {
@@ -13,5 +21,12 @@
     justify-content: center;
     gap: 2em;
     margin: 0.5em;
+    text-align: center;
+    align-items: center;
+    text-decoration: underline;
+
 }
 
+.gengar {
+    width: 105px;
+}

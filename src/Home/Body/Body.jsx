@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import scarletViolet from "../../assets/sv_banner.png";
 import horizonsSeries from "../../assets/hs_banner.png";
+import twilight from "../../assets/twilight.png";
 import IconContent from "../../Icons";
 
 import banner from "../../assets/tcg.png";
@@ -38,7 +39,7 @@ function Body() {
       <div className={classes.rectBannerContainer}>
         <div className={classes.rectBannerBox}>
           <button className={`${classes.content} ${btnClass.mainBtn}`}>
-            Buy S&V Cards!
+            Stellar Crown Cards!
           </button>
           <img
             src={scarletViolet}
@@ -48,11 +49,21 @@ function Body() {
         </div>
         <div className={classes.rectBannerBox}>
           <button className={`${classes.content} ${btnClass.mainBtn}`}>
-            Buy Horizons Cards!
+            Horizons Cards!
           </button>
           <img
             src={horizonsSeries}
             alt="horizons series banner"
+            className={classes.rectBanner}
+          />
+        </div>
+        <div className={classes.rectBannerBox}>
+          <button className={`${classes.content} ${btnClass.mainBtn}`}>
+            Twilight Masquerade Cards!
+          </button>
+          <img
+            src={twilight}
+            alt="twilight series banner"
             className={classes.rectBanner}
           />
         </div>

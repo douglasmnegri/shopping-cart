@@ -4,7 +4,7 @@ function IconContent({ icon, content, style }) {
   return (
     <>
       <div className={style}>
-        <FontAwesomeIcon icon={icon} size="2xl" />
+        <FontAwesomeIcon icon={icon} size="xl" />
         <p> {content}</p>
       </div>
     </>
