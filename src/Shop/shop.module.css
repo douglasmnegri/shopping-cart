@@ -1,0 +1,18 @@
+.shopBody {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr)
+}
+
+.pageControl {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.page {
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+    margin: 0px 10px 0px 10px;
+}
