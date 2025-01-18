@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import Cards from "./Cards/Cards";
 
 function ShopBody() {
-  const [cards, setCards] = useState(null); // Start with null to represent no data
+  const [cards, setCards] = useState(null);
   const url = "https://api.pokemontcg.io/v2/cards/base1-4";
 
   useEffect(() => {
@@ -12,7 +13,8 @@ function ShopBody() {
           throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
-        setCards(json); // Update state with fetched data
+        setCards(json);
+        console.log(json, cards.data.name);
       } catch (error) {
         console.error(error.message);
       }
@@ -24,9 +26,13 @@ function ShopBody() {
     <div>
       <h1>Test Card</h1>
       {cards ? (
-        <img src={cards.data.images.small} alt="Pokemon Card" />
+        <Cards
+          img={cards.data.images.small}
+          name={cards.data.name}
+          price={cards.data.tcgplayer.prices.holofoil.mid}
+        />
       ) : (
-        <p>Loading...</p> // Show a loading state while fetching
+        <p>Loading</p>
       )}
     </div>
   );

@@ -18,7 +18,7 @@ function Header() {
           <Link to="/" className={classes.font}>Home</Link>
         </p>
         <p>
-          <Link to="shop" className={classes.font}>Shop</Link>
+          <Link to="/shop" className={classes.font}>Shop</Link>
         </p>
         <p>
           <IconContent icon={faCartShopping} />
