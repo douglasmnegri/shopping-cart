@@ -4,23 +4,28 @@ import btnClass from "../../Button/button.module.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import IconContent from "../../Icons";
 
-function Cards({ img, name, price }) {
+function Cards({ img, name, price, artist }) {
   return (
     <>
       <div className={classes.container}>
         <div className={classes.pictureContainer}>
-          <h2 className={classes.font}>{name}</h2>
           <img src={img} alt="pokemon card image" />
         </div>
         <div className={classes.title}>
-          <h2 className={classes.font}>${price}</h2>
-        
-        <div className={classes.btnBox}>
-          <button className={`${btnClass.mainBtn} ${classes.btn}`}>Buy</button>
-          <button className={`${btnClass.mainBtn} ${classes.btn}`}>
-            {" "}
-            <IconContent icon={faCartShopping} />
-          </button>
+          <div className={classes.titleBox}>
+            <h3 className={classes.font}>{name}</h3>
+            <p className={classes.artist}>Artist: {artist}</p>
+          </div>
+
+          <div className={classes.btnBox}>
+            <h2 className={classes.font}>${price}</h2>
+            <button className={`${btnClass.mainBtn} ${classes.btn}`}>
+              Buy
+            </button>
+            <button className={`${btnClass.mainBtn} ${classes.btn}`}>
+              {" "}
+              <IconContent icon={faCartShopping} />
+            </button>
           </div>
         </div>
       </div>

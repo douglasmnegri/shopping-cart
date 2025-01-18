@@ -1,36 +1,48 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2em;
-    padding: 2em;
-    text-align: center;
-    width: fit-content;
-}
-
-.font {
-    color: #733ca9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2em;
+  width: fit-content;
+  border: solid black;
+  background: rgb(232, 232, 232);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px);
+  border: 1px solid rgba(203, 194, 194, 0.3);
 }
 
 .pictureContainer {
-    border: grey solid 2px;
-    padding: 2em;
-    background-color: lightgray;
+  border-bottom: solid 2px black;
+  padding: 1.5em;
+  margin-bottom: 0.5em;
 }
-.title {
-    border: solid grey 2px;
-    border-radius: 10px;
 
+.titleBox {
+    padding: 0.5em;
+}
+
+.title {
+    color: black;
+    padding: 1em;
+}
+.artist {
+    font-style: italic;
+    color: #7D78A3;
 }
 
 .btnBox {
-    display: flex;
-
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5em;
+  text-align: center;
+  padding: 0.5em;
+  gap: 0.5em;
 }
 
 .btn {
-    font-size: 14px;
-    height: 3rem;
+  font-size: 14px;
+  height: 3rem;
 }
 

@@ -3,7 +3,7 @@ import Cards from "./Cards/Cards";
 
 function ShopBody() {
   const [cards, setCards] = useState(null);
-  const url = "https://api.pokemontcg.io/v2/cards/base1-4";
+  const url = "https://api.pokemontcg.io/v2/cards/xy1-1";
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -14,7 +14,7 @@ function ShopBody() {
         }
         const json = await response.json();
         setCards(json);
-        console.log(json, cards.data.name);
+        console.log(json);
       } catch (error) {
         console.error(error.message);
       }
@@ -30,6 +30,7 @@ function ShopBody() {
           img={cards.data.images.small}
           name={cards.data.name}
           price={cards.data.tcgplayer.prices.holofoil.mid}
+          artist={cards.data.artist}
         />
       ) : (
         <p>Loading</p>
