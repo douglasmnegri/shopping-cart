@@ -8,17 +8,22 @@ import gengar from "../../assets/gengar.png";
 function Header() {
   return (
     <div className={classes.header}>
-      <div className={classes.title}>
-        <img src={gengar} alt="gengar" className={classes.gengar} />
-        <h2>Gengar's Card Shop</h2>
-      </div>
-
+      <Link to="/">
+        <div className={classes.title}>
+          <img src={gengar} alt="gengar" className={classes.gengar} />
+          <h2 className={classes.font}>Gengar's Card Shop</h2>
+        </div>
+      </Link>
       <div className={classes.link}>
         <p>
-          <Link to="/" className={classes.font}>Home</Link>
+          <Link to="/" className={classes.font}>
+            Home
+          </Link>
         </p>
         <p>
-          <Link to="/shop" className={classes.font}>Shop</Link>
+          <Link to="/shop" className={classes.font}>
+            Shop
+          </Link>
         </p>
         <p>
           <IconContent icon={faCartShopping} />

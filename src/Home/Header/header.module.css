@@ -25,7 +25,6 @@
     margin-right: 3em;
     text-align: center;
     align-items: center;
-    text-decoration: underline;
     font-size: large;
 
 }
@@ -35,5 +34,10 @@
 }
 
 .font {
-    color: inherit;
+    color: #F1B2AC;
+    text-decoration: underline;
+}
+
+.font:hover {
+    color: #400a58;
 }

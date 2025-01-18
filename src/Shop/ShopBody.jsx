@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Cards from "./Cards/Cards";
 import classes from "./shop.module.css";
 import btn from "../Button/button.module.css";
@@ -70,16 +70,22 @@ function ShopBody() {
 
     fetchCards();
   }, [currentPage]);
+  const ref = useRef(null);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
   const nextPage = () => {
     if ((currentPage - 1) * cardsPerPage + cards.length < totalCards) {
       setCurrentPage(currentPage + 1);
+      scrollToTop();
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      scrollToTop();
     }
   };
 
