@@ -1,3 +1,36 @@
-.font {
-    color: black;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    padding: 2em;
+    text-align: center;
+    width: fit-content;
 }
+
+.font {
+    color: #733ca9;
+}
+
+.pictureContainer {
+    border: grey solid 2px;
+    padding: 2em;
+    background-color: lightgray;
+}
+.title {
+    border: solid grey 2px;
+    border-radius: 10px;
+
+}
+
+.btnBox {
+    display: flex;
+
+}
+
+.btn {
+    font-size: 14px;
+    height: 3rem;
+}
+

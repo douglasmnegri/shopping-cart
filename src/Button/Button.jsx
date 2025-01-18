@@ -1,10 +1,9 @@
-// Button.jsx
 import classes from "./button.module.css";
 
-function Button() {
+function Button({ name }) {
   return (
     <div>
-      <button className={classes.mainBtn}>Default</button>
+      <button className={classes.mainBtn}></button>
     </div>
   );
 }
