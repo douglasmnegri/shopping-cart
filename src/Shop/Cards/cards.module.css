@@ -20,16 +20,16 @@
 }
 
 .titleBox {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 .title {
-    color: black;
-    padding: 1em;
+  color: black;
+  padding: 1em;
 }
 .artist {
-    font-style: italic;
-    color: #7D78A3;
+  font-style: italic;
+  color: #7d78a3;
 }
 
 .btnBox {
@@ -45,4 +45,3 @@
   font-size: 14px;
   height: 3rem;
 }
-

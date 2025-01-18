@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import Cards from "./Cards/Cards";
 
+const apiKey = import.meta.env.VITE_POKEMON_TCG_API_KEY;
+
+const pokeCards = { card: "bp-6", price: 20.35 };
 function ShopBody() {
+  const [id, setID] = useState(["bp-1", "bp-2", "bp-3"]);
   const [cards, setCards] = useState(null);
-  const url = "https://api.pokemontcg.io/v2/cards/xy1-1";
+  const url = `https://api.pokemontcg.io/v2/cards/${pokeCards.card}`;
 
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+        });
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
@@ -29,7 +37,7 @@ function ShopBody() {
         <Cards
           img={cards.data.images.small}
           name={cards.data.name}
-          price={cards.data.tcgplayer.prices.holofoil.mid}
+          // price={pokeCards.price}
           artist={cards.data.artist}
         />
       ) : (
