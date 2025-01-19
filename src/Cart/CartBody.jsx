@@ -1,9 +1,9 @@
 import classes from "./cart.module.css";
-import checkout from "./CartItems/items.module.css";
 import { shoppingCartItems } from "../Shop/Cards/Cards";
 import { useEffect, useState } from "react";
 import CartItems from "./CartItems/CartItems";
-import btn from "../Button/button.module.css";
+
+import CheckOut from "./CartItems/Checkout";
 const apiKey = import.meta.env.VITE_POKEMON_TCG_API_KEY;
 
 function CartBody() {
@@ -40,7 +40,7 @@ function CartBody() {
   }, [shoppingCartItems]);
   return (
     <div className={classes.box}>
-      <div>
+      <div className={classes.cardBox}>
         {cards.length >= 0 ? (
           <div>
             {cards.map((card) => (
@@ -57,36 +57,7 @@ function CartBody() {
           <p>THERE'S NOTHING CURRENTLY ON YOUR CART</p>
         )}{" "}
       </div>
-      <CheckOut />
-    </div>
-  );
-}
-
-function CheckOut() {
-  return (
-    <div className={checkout.checkout}>
-      <h3 className={checkout.title}>Cart Summary</h3>
-      <div className={checkout.items}>
-        <div>
-          <p>Items:</p>
-          <p>Item Total:</p>
-          <p>Estimated Shipping:</p>
-          <strong>
-            <p>Cart Subtotal:</p>
-          </strong>
-        </div>
-        <div>
-          <p>{shoppingCartItems.length}</p>
-          <p>$24.83</p>
-          <p>$3.99</p>
-          <p>$29.34</p>
-        </div>
-      </div>
-      <div>
-        <button className={`${btn.mainBtn} ${classes.btnContainer}`}>
-          Checkout
-        </button>
-      </div>
+      <CheckOut cartItems={shoppingCartItems.length}/>
     </div>
   );
 }
