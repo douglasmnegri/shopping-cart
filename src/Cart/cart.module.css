@@ -1,5 +1,38 @@
 .box {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  color: black;
+  margin: 2em;
+  padding: 2em;
+  background: rgba(132, 130, 134, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px);
+  border: 1px solid rgba(203, 194, 194, 0.3);
 }
 
+.checkoutContainer {
+  display: flex;
+}
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* .container {
+    display: flex;
+    color: black;
+    margin: 2em;
+    padding: 2em;
+    width: fit-content;
+    border: solid black;
+    background: rgb(232, 232, 232);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.3px);
+    -webkit-backdrop-filter: blur(7.3px);
+    border: 1px solid rgba(203, 194, 194, 0.3);
+  } */

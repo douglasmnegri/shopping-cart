@@ -2,8 +2,8 @@ import classes from "./cart.module.css";
 import { shoppingCartItems } from "../Shop/Cards/Cards";
 import { useEffect, useState } from "react";
 import CartItems from "./CartItems/CartItems";
-
 import CheckOut from "./CartItems/Checkout";
+import load from "../Shop/loading.module.css";
 const apiKey = import.meta.env.VITE_POKEMON_TCG_API_KEY;
 
 function CartBody() {
@@ -40,26 +40,35 @@ function CartBody() {
   }, [shoppingCartItems]);
   return (
     <div className={classes.box}>
-      <div className={classes.cardBox}>
-        {cards.length >= 0 ? (
-          <div>
-            {cards.map((card) => (
-              <CartItems
-                key={card.id}
-                img={card.images.small}
-                name={card.name}
-                price={card.cardmarket.prices.averageSellPrice}
-                artist={card.artist}
-              />
-            ))}
+      <div>
+        {cards.length > 0 ? (
+          <div className={classes.checkoutContainer}>
+            <div className={classes.cardsContainer}>
+              {cards.map((card) => (
+                <CartItems
+                  key={card.id}
+                  img={card.images.small}
+                  name={card.name}
+                  price={card.cardmarket.prices.averageSellPrice}
+                  artist={card.artist}
+                />
+              ))}
+            </div>
+            <CheckOut cartItems={shoppingCartItems.length} />
           </div>
         ) : (
-          <p>THERE'S NOTHING CURRENTLY ON YOUR CART</p>
-        )}{" "}
+          <Loading />
+        )}
       </div>
-      <CheckOut cartItems={shoppingCartItems.length}/>
     </div>
   );
 }
 
+function Loading() {
+  return (
+    <div className={load.loadContainer}>
+      <div className={load.pokemon}></div>
+    </div>
+  );
+}
 export default CartBody;
