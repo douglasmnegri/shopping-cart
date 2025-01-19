@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import Cards from "./Cards/Cards";
 import classes from "./shop.module.css";
 import btn from "../Button/button.module.css";
+import load from "./loading.module.css";
+
 const apiKey = import.meta.env.VITE_POKEMON_TCG_API_KEY;
 
 function ShopBody() {
@@ -91,7 +93,6 @@ function ShopBody() {
 
   return (
     <div>
-      <h1>Test Card</h1>
       {cards.length > 0 ? (
         <div className={classes.shopBody}>
           {cards.map((card) => (
@@ -105,7 +106,7 @@ function ShopBody() {
           ))}
         </div>
       ) : (
-        <p>Loading...</p>
+        <Loading />
       )}
 
       <div className={classes.pageControl}>
@@ -132,6 +133,14 @@ function ShopBody() {
           &#8594;
         </button>
       </div>
+    </div>
+  );
+}
+
+function Loading() {
+  return (
+    <div className={load.loadContainer}>
+      <div className={load.pokemon}></div>
     </div>
   );
 }
