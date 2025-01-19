@@ -26,7 +26,9 @@ function Header() {
           </Link>
         </p>
         <p>
-          <IconContent icon={faCartShopping} />
+          <Link to="/cart">
+            <IconContent icon={faCartShopping} />
+          </Link>
         </p>
       </div>
     </div>

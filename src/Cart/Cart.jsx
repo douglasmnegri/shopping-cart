@@ -1,15 +1,15 @@
 import Header from "../Home/Header/Header";
 import Footer from "../Home/Footer/Footer";
-import ShopBody from "./ShopBody";
+import CartBody from "./CartBody";
 import "../index.css";
-function Shop() {
+function Cart() {
   return (
     <>
       <Header />
-      <ShopBody />
+      <CartBody />
       <Footer />
     </>
   );
 }
 
-export default Shop;
+export default Cart;
