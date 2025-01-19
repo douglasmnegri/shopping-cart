@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import CartItems from "./CartItems/CartItems";
 import CheckOut from "./CartItems/Checkout";
 import load from "../Shop/loading.module.css";
+import gengarFace from "../assets/gengarFace.png";
+import btn from "../Button/button.module.css";
+import { Link } from "react-router-dom";
+
 const apiKey = import.meta.env.VITE_POKEMON_TCG_API_KEY;
 
 function CartBody() {
@@ -39,9 +43,11 @@ function CartBody() {
     fetchCards();
   }, [shoppingCartItems]);
   return (
-    <div className={classes.box}>
-      <div>
-        {cards.length > 0 ? (
+    <>
+      {shoppingCartItems.length === 0 ? (
+        <EmptyCard />
+      ) : cards.length > 0 ? (
+        <div className={classes.box}>
           <div className={classes.checkoutContainer}>
             <div className={classes.cardsContainer}>
               {cards.map((card) => (
@@ -56,11 +62,11 @@ function CartBody() {
             </div>
             <CheckOut cartItems={shoppingCartItems.length} />
           </div>
-        ) : (
-          <Loading />
-        )}
-      </div>
-    </div>
+        </div>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 }
 
@@ -68,6 +74,26 @@ function Loading() {
   return (
     <div className={load.loadContainer}>
       <div className={load.pokemon}></div>
+    </div>
+  );
+}
+
+function EmptyCard() {
+  return (
+    <div className={classes.noItems}>
+      <img src={gengarFace} alt="gengar face" className={classes.gengarFace} />
+      <div className={classes.noItemsText}>
+        <h1>Your Cart is Empty!</h1>
+        <p>
+          Looks like you have not added anything to your cart. Go ahead and
+          search for your favorite cards.{" "}
+        </p>
+        <Link to="/shop">
+          <button className={`${btn.mainBtn} ${classes.btnSize}`}>
+            Shop for Cards
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

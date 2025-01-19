@@ -21,7 +21,29 @@
   flex-direction: column;
 }
 
+.noItems {
+  display: flex;
+  justify-content: center;
+  background-color: #7d78a3;
+  padding: 14em;
+  border-bottom: black solid 1px;
+  border-top: black solid 1px;
+}
 
+.noItemsText {
+  width: 40%;
+  margin-left: 1.5em;
+}
+
+.gengarFace {
+  width: 250px;
+}
+
+.btnSize {
+  margin-top: 1.5em;
+  font-size: 18px;
+  height: 3em;
+}
 /* .container {
     display: flex;
     color: black;
