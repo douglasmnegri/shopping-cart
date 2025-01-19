@@ -1,8 +1,9 @@
 .box {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    border: solid black 2px;
+    justify-content: space-around;
+}
+
+.btnContainer{
+    font-size: 25px;
+    height: 2em;
 }

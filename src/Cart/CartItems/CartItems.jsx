@@ -1,16 +1,17 @@
-function CartItems({ img, name, price, artist }) {
+import classes from "./items.module.css";
+
+function CartItems({ img, name, price, artist, items }) {
   return (
     <>
-    <h1>HEYYY WHY IS</h1>
-      <div>
-        <img src={img} alt="pokemon card image" />
-      </div>
-      <div>
+      <div className={classes.container}>
         <div>
+          <img
+            src={img}
+            alt="pokemon card image"
+            className={classes.imageContainer}
+          />
           <h3>{name}</h3>
           <p>Artist: {artist}</p>
-        </div>
-        <div>
           <h2>${price}</h2>
         </div>
       </div>
