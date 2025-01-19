@@ -4,7 +4,13 @@ import btnClass from "../../Button/button.module.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import IconContent from "../../Icons";
 
-function Cards({ img, name, price, artist }) {
+const shoppingCartItems = [];
+function Cards({ img, name, price, artist, id }) {
+  function getCardID() {
+    console.log(id);
+    shoppingCartItems.push(id);
+    console.log(shoppingCartItems);
+  }
   return (
     <>
       <div className={classes.container}>
@@ -19,10 +25,16 @@ function Cards({ img, name, price, artist }) {
 
           <div className={classes.btnBox}>
             <h2 className={classes.font}>${price}</h2>
-            <button className={`${btnClass.mainBtn} ${classes.btn}`}>
+            <button
+              onClick={getCardID}
+              className={`${btnClass.mainBtn} ${classes.btn}`}
+            >
               Buy
             </button>
-            <button className={`${btnClass.mainBtn} ${classes.btn}`}>
+            <button
+              onClick={getCardID}
+              className={`${btnClass.mainBtn} ${classes.btn}`}
+            >
               {" "}
               <IconContent icon={faCartShopping} />
             </button>
@@ -33,4 +45,5 @@ function Cards({ img, name, price, artist }) {
   );
 }
 
+export { shoppingCartItems };
 export default Cards;

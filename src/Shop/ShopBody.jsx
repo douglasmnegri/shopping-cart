@@ -102,6 +102,7 @@ function ShopBody() {
               name={card.name}
               price={card.cardmarket.prices.averageSellPrice}
               artist={card.artist}
+              id={card.id}
             />
           ))}
         </div>
