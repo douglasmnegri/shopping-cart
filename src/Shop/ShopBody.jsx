@@ -16,7 +16,7 @@ function ShopBody() {
   const id = [
     "xyp-XY19",
     "sv6-6",
-    "sv6pt5-1",
+    "hgss4-1",
     "xy4-22",
     "xy6-1",
     "base1-4",

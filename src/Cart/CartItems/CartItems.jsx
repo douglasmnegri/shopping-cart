@@ -9,16 +9,17 @@ function CartItems({ img, name, price, artist }) {
         <div className={classes.container}>
           <div className={classes.cardHeader}></div>
 
-          <img
-            src={img}
-            alt="pokemon card image"
-            className={classes.imageContainer}
-          />
-
-          <div className={classes.itemContainer}>
-            <h3>{name}</h3>
-            <p>Artist: {artist}</p>
-            <h2>${price}</h2>
+          <div className={classes.items}>
+            <img
+              src={img}
+              alt="pokemon card image"
+              className={classes.imageContainer}
+            />
+            <div className={classes.itemContainer}>
+              <h3>{name}</h3>
+              <p>Artist: {artist}</p>
+              <h2>${price}</h2>
+            </div>
           </div>
           <div className={classes.trashIcon}>
             <DeleteCard />
