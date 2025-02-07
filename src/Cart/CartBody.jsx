@@ -16,10 +16,11 @@ function CartBody() {
   const url = `https://api.pokemontcg.io/v2/cards/`;
 
   useEffect(() => {
+    const ids = Object.keys(shoppingCartItems);
     const fetchCards = async () => {
       try {
         const fetchedCards = await Promise.all(
-          shoppingCartItems.map(async (cardId) => {
+          ids.map(async (cardId) => {
             const response = await fetch(url + cardId, {
               headers: {
                 "X-Api-Key": apiKey,
@@ -34,7 +35,7 @@ function CartBody() {
         );
 
         setCards(fetchedCards);
-        setTotalCards(shoppingCartItems.length);
+        setTotalCards(ids.length);
         console.log(cards);
       } catch (error) {
         console.error(error.message);

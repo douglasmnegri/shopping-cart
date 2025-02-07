@@ -4,11 +4,12 @@ import btnClass from "../../Button/button.module.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import IconContent from "../../Icons";
 
-const shoppingCartItems = [];
+const shoppingCartItems = {};
 function Cards({ img, name, price, artist, id }) {
   function getCardID() {
-    console.log(id);
-    shoppingCartItems.push(id);
+
+    shoppingCartItems[id] = {price};
+    
     console.log(shoppingCartItems);
   }
   return (
