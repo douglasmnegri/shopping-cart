@@ -3,7 +3,7 @@ import checkout from "./items.module.css";
 import gengar from "../../assets/gengar.png";
 import { shoppingCartItems } from "../../Shop/Cards/Cards";
 
-function CheckOut({ cartItems }) {
+function CheckOut() {
   function sumPrices() {
     let totalPrice = 0;
 
@@ -14,28 +14,23 @@ function CheckOut({ cartItems }) {
       }
     }
 
-    return totalPrice.toFixed(2); // Format to 2 decimal places for currency
+    return totalPrice;
   }
 
   const price = sumPrices();
-
+  const shipping = parseFloat(price) * 0.03 > 5.45 ? parseFloat(price * 0.03)  : 5.45;
   return (
     <div className={checkout.checkout}>
       <h2 className={checkout.title}>Cart Summary</h2>
       <div className={checkout.items}>
         <div>
-          <p>Items:</p>
-          <p>Item Total:</p>
-          <p>Estimated Shipping:</p>
+          <p>Item Total: {price ? `$${price.toFixed(2)}` : "Loading..."}</p>
+          <p>Shipping: {price ? `$${shipping.toFixed(2)}` : "Loading..."}</p>
           <strong>
-            <p>Cart Subtotal:</p>
+            <p>
+              Cart Subtotal: {price ? `$${(parseFloat(price) + shipping).toFixed(2)}` : "Loading..."}{" "}
+            </p>
           </strong>
-        </div>
-        <div>
-          <p>$ 2.90</p>
-          <p>$24.83</p>
-          <p>$3.99</p>
-          <p>{price ? `$${price}` : "Loading..."}</p>
         </div>
       </div>
       <div>

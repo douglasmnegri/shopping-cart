@@ -7,10 +7,7 @@ import IconContent from "../../Icons";
 const shoppingCartItems = {};
 function Cards({ img, name, price, artist, id }) {
   function getCardID() {
-
-    shoppingCartItems[id] = {price};
-    
-    console.log(shoppingCartItems);
+    shoppingCartItems[id] = { price };
   }
   return (
     <>
@@ -48,3 +45,4 @@ function Cards({ img, name, price, artist, id }) {
 
 export { shoppingCartItems };
 export default Cards;
+
