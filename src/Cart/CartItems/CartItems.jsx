@@ -1,8 +1,8 @@
 import classes from "./items.module.css";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import IconContent from "../../Icons";
-
-function CartItems({ img, name, price, artist }) {
+import { shoppingCartItems } from "../../Shop/Cards/Cards";
+function CartItems({ id, img, name, price, artist }) {
   return (
     <>
       <div>
@@ -21,6 +21,9 @@ function CartItems({ img, name, price, artist }) {
               <h2>${price}</h2>
             </div>
           </div>
+          <div className={classes.cardQtd}>
+            <CardQuantity cardID={id} />
+          </div>
           <div className={classes.trashIcon}>
             <DeleteCard />
           </div>
@@ -35,6 +38,33 @@ function DeleteCard() {
     <div>
       <button>
         <IconContent icon={faTrash} size={"xl"} />
+      </button>
+    </div>
+  );
+}
+
+function CardQuantity({ cardID }) {
+  function increaseQuantity() {
+    if (shoppingCartItems[cardID]) {
+      shoppingCartItems[cardID].quantity += 1;
+    }
+  }
+
+  function decreaseQuantity() {
+    if (shoppingCartItems[cardID] && shoppingCartItems[cardID].quantity > 1) {
+      console.log(shoppingCartItems)
+      shoppingCartItems[cardID].quantity -= 1;
+    }
+  }
+
+  return (
+    <div className={classes.cardQtd}>
+      <button onClick={increaseQuantity}>
+        <IconContent icon={faPlus} size={"xl"} />
+      </button>
+      <div>{shoppingCartItems[cardID]?.quantity || 1}</div>
+      <button onClick={decreaseQuantity}>
+        <IconContent icon={faMinus} size={"xl"} />
       </button>
     </div>
   );

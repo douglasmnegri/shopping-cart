@@ -54,6 +54,7 @@ function CartBody() {
               {cards.map((card) => (
                 <CartItems
                   key={card.id}
+                  id={card.id}
                   img={card.images.small}
                   name={card.name}
                   price={card.cardmarket.prices.averageSellPrice}

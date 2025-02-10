@@ -10,7 +10,7 @@ function CheckOut() {
     for (let key in shoppingCartItems) {
       if (shoppingCartItems.hasOwnProperty(key)) {
         const item = shoppingCartItems[key];
-        totalPrice += item.price;
+        totalPrice = totalPrice + (item.price * item.quantity);
       }
     }
 
