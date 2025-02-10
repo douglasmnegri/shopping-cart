@@ -1,23 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import classes from "./cards.module.css";
 import btnClass from "../../Button/button.module.css";
 import { faCartShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
 import IconContent from "../../Icons";
-
-const shoppingCartItems = {};
+import { CartContext } from "../../CartContext"; 
 
 function Cards({ img, name, price, artist, id }) {
   const [addedToCart, setAddedToCart] = useState(false);
+  const { shoppingCartItems, setShoppingCartItems } = useContext(CartContext); // Use the context
 
   function addToCart() {
-    if (shoppingCartItems[id]) {
-      shoppingCartItems[id].quantity += 1; 
-    } else {
-      shoppingCartItems[id] = { price, quantity: 1 }; 
-    }
+    setShoppingCartItems((prev) => {
+      const newCart = { ...prev }; // Create a copy of the previous state
+      
+      if (newCart[id]) {
+        newCart[id].quantity += 1; // Increase quantity if the item exists
+      } else {
+        newCart[id] = { price, quantity: 1 }; // Add new item
+      }
+
+      return newCart; // Return the updated cart
+    });
 
     setAddedToCart(true);
-    console.log(shoppingCartItems);
 
     // Reset animation after 1 second
     setTimeout(() => setAddedToCart(false), 1000);
@@ -56,5 +61,4 @@ function Cards({ img, name, price, artist, id }) {
   );
 }
 
-export { shoppingCartItems };
 export default Cards;

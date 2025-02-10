@@ -1,16 +1,15 @@
 import btn from "../../Button/button.module.css";
 import checkout from "./items.module.css";
 import gengar from "../../assets/gengar.png";
-import { shoppingCartItems } from "../../Shop/Cards/Cards";
 
-function CheckOut() {
+function CheckOut({ cartItems }) {
   function sumPrices() {
     let totalPrice = 0;
 
-    for (let key in shoppingCartItems) {
-      if (shoppingCartItems.hasOwnProperty(key)) {
-        const item = shoppingCartItems[key];
-        totalPrice = totalPrice + (item.price * item.quantity);
+    for (let key in cartItems) {
+      if (cartItems.hasOwnProperty(key)) {
+        const item = cartItems[key];
+        totalPrice = totalPrice + item.price * item.quantity;
       }
     }
 
@@ -18,7 +17,8 @@ function CheckOut() {
   }
 
   const price = sumPrices();
-  const shipping = parseFloat(price) * 0.03 > 5.45 ? parseFloat(price * 0.03)  : 5.45;
+  const shipping =
+    parseFloat(price) * 0.03 > 5.45 ? parseFloat(price * 0.03) : 5.45;
   return (
     <div className={checkout.checkout}>
       <h2 className={checkout.title}>Cart Summary</h2>
@@ -28,7 +28,10 @@ function CheckOut() {
           <p>Shipping: {price ? `$${shipping.toFixed(2)}` : "Loading..."}</p>
           <strong>
             <p>
-              Cart Subtotal: {price ? `$${(parseFloat(price) + shipping).toFixed(2)}` : "Loading..."}{" "}
+              Cart Subtotal:{" "}
+              {price
+                ? `$${(parseFloat(price) + shipping).toFixed(2)}`
+                : "Loading..."}{" "}
             </p>
           </strong>
         </div>

@@ -1,8 +1,34 @@
 import classes from "./items.module.css";
 import { faTrash, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import IconContent from "../../Icons";
-import { shoppingCartItems } from "../../Shop/Cards/Cards";
+import { useContext } from "react";
+import { CartContext } from "../../CartContext";
+
 function CartItems({ id, img, name, price, artist }) {
+  const { shoppingCartItems, setShoppingCartItems } = useContext(CartContext);
+
+  function increaseQuantity() {
+    if (shoppingCartItems[id]) {
+      const updatedCart = { ...shoppingCartItems };
+      updatedCart[id].quantity += 1;
+      setShoppingCartItems(updatedCart);
+    }
+  }
+
+  function decreaseQuantity() {
+    if (shoppingCartItems[id] && shoppingCartItems[id].quantity > 1) {
+      const updatedCart = { ...shoppingCartItems };
+      updatedCart[id].quantity -= 1;
+      setShoppingCartItems(updatedCart);
+    }
+  }
+
+  function deleteItem() {
+    const updatedCart = { ...shoppingCartItems };
+    delete updatedCart[id]; 
+    setShoppingCartItems(updatedCart); 
+  }
+
   return (
     <>
       <div>
@@ -22,10 +48,15 @@ function CartItems({ id, img, name, price, artist }) {
             </div>
           </div>
           <div className={classes.cardQtd}>
-            <CardQuantity cardID={id} />
+            <CardQuantity
+              id={id}
+              shoppingCartItems={shoppingCartItems}
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+            />
           </div>
           <div className={classes.trashIcon}>
-            <DeleteCard />
+            <DeleteCard onDelete={deleteItem} /> {/* Pass the delete function */}
           </div>
         </div>
       </div>
@@ -33,36 +64,23 @@ function CartItems({ id, img, name, price, artist }) {
   );
 }
 
-function DeleteCard() {
+function DeleteCard({ onDelete }) {
   return (
     <div>
-      <button>
+      <button onClick={onDelete}> {/* Call the delete function on click */}
         <IconContent icon={faTrash} size={"xl"} />
       </button>
     </div>
   );
 }
 
-function CardQuantity({ cardID }) {
-  function increaseQuantity() {
-    if (shoppingCartItems[cardID]) {
-      shoppingCartItems[cardID].quantity += 1;
-    }
-  }
-
-  function decreaseQuantity() {
-    if (shoppingCartItems[cardID] && shoppingCartItems[cardID].quantity > 1) {
-      console.log(shoppingCartItems)
-      shoppingCartItems[cardID].quantity -= 1;
-    }
-  }
-
+function CardQuantity({ id, shoppingCartItems, increaseQuantity, decreaseQuantity }) {
   return (
     <div className={classes.cardQtd}>
       <button onClick={increaseQuantity}>
         <IconContent icon={faPlus} size={"xl"} />
       </button>
-      <div>{shoppingCartItems[cardID]?.quantity || 1}</div>
+      <div>{shoppingCartItems[id]?.quantity || 1}</div>
       <button onClick={decreaseQuantity}>
         <IconContent icon={faMinus} size={"xl"} />
       </button>
